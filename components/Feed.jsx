@@ -60,8 +60,11 @@ const Feed = () => {
     fetchPosts();
   }, [])
 
-  const handleTagClick = () => {
+  const handleTagClick = (tagName) => {
+    setSearchText(tagName);
 
+    const searchResult = filterPrompts(tagName);
+    setSearchedResults(searchResult);
   }
 
   return (

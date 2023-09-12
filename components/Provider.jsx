@@ -1,8 +1,18 @@
-import React from 'react'
+"use client";
 
-function Provider() {
+import { SessionProvider } from 'next-auth/react'
+
+/* 
+higher order components
+Using the supplied <SessionProvider> allows instances of useSession() to share 
+the session object across components, by using React Context under the hood. 
+It also takes care of keeping the session updated and synced between tabs/windows.
+*/
+function Provider({children, session}) {
   return (
-    <div>Provider</div>
+    <SessionProvider session={session}>
+      {children}
+    </SessionProvider>
   )
 }
 
